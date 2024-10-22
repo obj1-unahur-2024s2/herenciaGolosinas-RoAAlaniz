@@ -120,6 +120,28 @@ class Chocolatin {
 	method libreGluten() { return false }
 }
 
+object heladeraDeMariano {
+	var property humedad = 0 
+}
+
+class ChocolatinVIP inherits Chocolatin {
+	override method peso() {
+		return super() * (1 + self.humedad())
+	}
+	method humedad() {
+	  return heladeraDeMariano.humedad() 
+	}
+}
+
+class ChocolatinPremium inherits ChocolatinVIP {
+	override method humedad() {
+	  return super() / 2
+	}
+}
+
+class Golosina {
+	method azucar() {return 10} 
+}
 class GolosinaBaniada {
 	var golosinaInterior
 	var pesoBanio = 4
