@@ -49,6 +49,16 @@ class Caramelo {
 	method libreGluten() { return true }
 }
 
+class CarameloConCorazonDeChocolate inherits Caramelo {
+	override method mordisco(){
+		super()
+		self.sabor(chocolate)
+	}
+	override method precio() {
+		return super() + 1
+	}
+}
+
 class Chupetin {
 	var peso = 7
 	
@@ -79,6 +89,20 @@ class Oblea {
 	}	
 	method sabor() { return vainilla }
 	method libreGluten() { return false }
+}
+
+class ObleaCrujiente inherits Oblea {
+  var cantidadMordiscos = 0
+  override method mordisco(){
+	super()
+	cantidadMordiscos = cantidadMordiscos + 1
+	if (cantidadMordiscos <= 3){
+		peso = peso - 3
+	}
+  }
+  method estaDebil() {
+	return cantidadMordiscos > 3 
+  }
 }
 
 class Chocolatin {
