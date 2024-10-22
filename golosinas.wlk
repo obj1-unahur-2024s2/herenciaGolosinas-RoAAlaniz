@@ -1,16 +1,11 @@
-/*
- * Los sabores
- */
+//SABORES
 object frutilla { }
 object chocolate { }
 object vainilla { }
 object naranja { }
 object limon { }
 
-
-/*
- * Golosinas
- */
+//GOLOSINAS
 class Bombon {
 	var peso = 15
 	
@@ -21,6 +16,18 @@ class Bombon {
 	method libreGluten() { return true }
 }
 
+class BombonDuro inherits Bombon {
+	method gradoDeDureza() {
+	  if (peso > 12){
+		return 3
+	  } else if (peso.between(8, 12)){
+		return 2
+	  } else {
+		return 1
+	  }
+	}
+	override method mordisco() {peso = peso - 1}  //para redefinir
+}
 
 class Alfajor {
 	var peso = 15
@@ -41,7 +48,6 @@ class Caramelo {
 	method sabor() { return frutilla }
 	method libreGluten() { return true }
 }
-
 
 class Chupetin {
 	var peso = 7
@@ -88,7 +94,6 @@ class Chocolatin {
 	method mordisco() { comido = comido + 2 }
 	method sabor() { return chocolate }
 	method libreGluten() { return false }
-
 }
 
 class GolosinaBaniada {
